@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница с профилями</title>
+</head>
+<body>
+{% for profile in profiles %}
+    <li><a href="{{ profile.get_absolute_url }}">{{ profile.name }}</a></li><br>
+{% endfor %}
+<form>
+    <button formaction="create_profile/">Добавить профиль</button>
+</form>
+</body>
+</html>

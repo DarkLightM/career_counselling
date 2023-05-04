@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcriber</title>
+</head>
+<body>
+{% for transcriber in transcribers %}
+    <li><a href="transcriber/{{ transcriber.slug }}">{{ transcriber.name }}</a></li><br>
+{% endfor %}
+<form>
+    <button formaction="add_file/">Добавить файл для транскрибации</button>
+</form>
+</body>
+</html>

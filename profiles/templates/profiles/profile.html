@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница профиля</title>
+</head>
+<body>
+{% if profile.client == None %}
+    <form>
+        <button formaction="../../create_client/">Добавить клиента</button>
+    </form>
+    {% else %}
+    <li><a href="client/{{ profile.client.slug }}">{{ profile.client }}</a></li><br>
+{% endif %}
+{% if profile.vk_info == None %}
+    <form>
+        <button formaction="vk_info/create_vk_profile/">Добавить профиль вк</button>
+    </form>
+    {% else %}
+    <li><a href="vk_info/{{ profile.vk_info.slug }}">{{ profile.vk_info }}</a></li><br>
+{% endif %}
+{% if profile.analytics == None %}
+    <form>
+        <button formaction="analytics/create/">Добавить аналитику</button>
+    </form>
+    {% else %}
+    <li><a href="analytics/{{ profile.analytics.slug }}">{{ profile.analytics }}</a></li><br>
+{% endif %}
+{% if transcribers.count == 0 %}
+    <form>
+        <button formaction="transcribers/add_file/">Добавить файл для транскрибации</button>
+    </form>
+    {% else %}
+    {% for transcriber in transcribers %}
+    <li><a href="transcribers/transcriber/{{ transcriber.slug }}">{{ transcriber.name }}</a></li><br>
+{% endfor %}
+{% endif %}
+</body>
+</html>
